@@ -9,6 +9,8 @@ export function getWordsInNumber(n) {
   const numberArray = makeNumberArray(n);
 }
 
+// returns an array of digits 
+// e.g. n = 1234 => [1,2,3,4]
 export function makeNumberArray(n, array = []) {
   if (n < 10) {
     array.unshift(n);
@@ -21,6 +23,8 @@ export function makeNumberArray(n, array = []) {
   }
 }
 
+// returns an array of strings representing a number 
+//  e.g. numberArray [1,2,3,4] => ["one", "thousand", "two", "hundred", "thirty", "four"]
 export function formatArrays(numberArray, stringArray) {
   const len = numberArray.length;
 
