@@ -12,6 +12,17 @@ describe("helper functions", () => {
     expect(makeNumberArray(14234567)).toEqual([1, 4, 2, 3, 4, 5, 6, 7]);
   });
   
+  it("converts numbers into three digit arrays", () => {
+    expect(formatNumberArraytoThreeDigits(1)).toEqual([[1][);
+    expect(formatNumberArraytoThreeDigits(10)).toEqual([[1, 0][);
+    expect(formatNumberArraytoThreeDigits(299)).toEqual([[2, 9, 9][);
+    expect(formatNumberArraytoThreeDigits(1234)).toEqual([[1],[2, 3, 4]]);
+    expect(makeNumberArray(12345)).toEqual([[1, 2], [3, 4, 5]]);
+    expect(formatNumberArraytoThreeDigits(123456)).toEqual([[1, 2, 3], [4, 5, 6]]);
+    expect(formatNumberArraytoThreeDigits(1234567)).toEqual([[1], [2, 3, 4], [5, 6, 7]]);
+    expect(formatNumberArraytoThreeDigits(14234567)).toEqual([[1, 4], [2, 3, 4], [5, 6, 7]]);
+  })
+  
   it("converts number arrays into string arrays for n < 1000", () => {
     expect(formatArray(1)).toBe(["one"])
     expect(formatArray(15)).toBe(["fifteen")])
