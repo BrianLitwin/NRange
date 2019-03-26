@@ -10,8 +10,26 @@ export function getWordsInNumber(n) {
 }
 
 // .e.g [1,2,3,4,5,6,7] => [[1], [2,3,4], [5,6,7]]
-export function formatNumberArraytoThreeDigits(numberArray) {
+export function formatNumberArraytoThreeDigits(n) {
+  const numberArray = makeNumberArray(n)
+  const finalArray = []
+  const startNewArray = () => { 
+    if (finalArray.length === 0) {
+      finalArray.push([])
+      return false 
+    }
+    return finalArray[0].length % 3 === 0
+  }
   
+  while (numberArray.length > 0) {
+    const nextNumber = numberArray.pop()
+    if (startNewArray()) {
+      finalArray.unshift([nextNumber])
+    } else {
+      finalArray[0].unshift(nextNumber)
+    }
+  }
+  return finalArray 
 }
 
 export function convertNumberToStringArray(n) {
