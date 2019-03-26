@@ -13,11 +13,6 @@ describe("helper functions", () => {
   });
   
   it("converts numbers into three digit arrays", () => {
-    const result = (n) => {
-      const numberArray = makeNumberArray(n)
-      return formatNumberArraytoThreeDigits(numberArray)
-    }
-    
     expect(formatNumberArraytoThreeDigits([1])).toEqual([[1][);
     expect(formatNumberArraytoThreeDigits([10])).toEqual([[1, 0][);
     expect(formatNumberArraytoThreeDigits([2,9,9])).toEqual([[2, 9, 9][);
