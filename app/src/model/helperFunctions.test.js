@@ -20,9 +20,14 @@ describe("helper functions", () => {
   })
   
   it("converts number arrays into string arrays for n > 1000", () => {
-  
+    expect(convertNumberToStringArray(1000)).toBe(["one", "thousand"]), 
+    expect(convertNumberToStringArray(1001)).toBe(["one", "thousand", "one"]), 
+    expect(convertNumberToStringArray(2234)).toBe(["two", "thousand", "two", "hundred", "twenty", "three"]), 
+    expect(convertNumberToStringArray(10015)).toBe(["ten", "thousand", "fifteen"]) 
+    expect(convertNumberToStringArray(999554)).toBe("nine", "hundred", "ninety", "nine", "thousand", "five", "hundred", "fity", "four"]
+    expect(convertNumberToStringArray(1000000)).toBe(["one", "million"])                                               
+    expect(convertNumberToStringArray(1303001)).toBe(["one", "million", "three", "hundred", "three", "thousand", "one"])
+    expect(convertNumberToStringArray(100802200)).toBe(["ten", "million", "eighty", "thousand", "two", "hundred", "twenty"])
   })
-  
-  it(
 
 });
