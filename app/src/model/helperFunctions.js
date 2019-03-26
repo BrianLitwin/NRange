@@ -7,11 +7,16 @@ import {
 
 export function getWordsInNumber(n) {
   const numberArray = makeNumberArray(n);
+  const threeDigitArray = formatNumberArraytoThreeDigits(numberArray)
+  const words = []
+  
+  for (var i = 0; i < threeDigitArray.length; i++) {
+  
+  }
 }
 
 // .e.g [1,2,3,4,5,6,7] => [[1], [2,3,4], [5,6,7]]
-export function formatNumberArraytoThreeDigits(n) {
-  const numberArray = makeNumberArray(n)
+export function formatNumberArraytoThreeDigits(numberArray) {
   const finalArray = []
   const startNewArray = () => { 
     if (finalArray.length === 0) {
@@ -32,7 +37,7 @@ export function formatNumberArraytoThreeDigits(n) {
   return finalArray 
 }
 
-export function convertNumberToStringArray(n) {
+export function getWordsInNumber(n) {
   const numberArray = makeNumberArray(n);
   const threeDigitArray = formatNumberArraytoThreeDigits(numberArray)
   const finalArray = [threeDigitArray.pop()]; // init w/ the subarray representing "hundreds" 
