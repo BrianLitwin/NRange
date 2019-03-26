@@ -1,4 +1,4 @@
-import { makeNumberArray } from "./helperFunctions";
+import { makeNumberArray, formatArray } from "./helperFunctions";
 
 describe("helper functions", () => {
   it("converts numbers into arrays", () => {
@@ -12,13 +12,17 @@ describe("helper functions", () => {
     expect(makeNumberArray(14234567)).toEqual([1, 4, 2, 3, 4, 5, 6, 7]);
   });
   
-  it("converts number arrays into string arrays", () => {
-    expect(makeNumberArray(1)).toBe(["one"])
-    expect(makeNumberArray(15)).toBe(["fifteen")])
-    expect(makeNumberArray(72)).toBe(["seventy", "two"])
-    expect(makeNumberArray(123)).toBe(["one", "hundred", "twenty", "three"])
-    expect(makeNumberArray(123456)).toBe(["one", "hundred", "twenty", "three", "thousand", "four", "hundred", "fifty", "six"])
-    
+  it("converts number arrays into string arrays for n < 1000", () => {
+    expect(formatArray(1)).toBe(["one"])
+    expect(formatArray(15)).toBe(["fifteen")])
+    expect(formatArray(72)).toBe(["seventy", "two"])
+    expect(formatArray(123)).toBe(["one", "hundred", "twenty", "three"])
   })
+  
+  it("converts number arrays into string arrays for n > 1000", () => {
+  
+  })
+  
+  it(
 
 });
