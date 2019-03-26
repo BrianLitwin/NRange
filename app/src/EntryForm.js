@@ -2,7 +2,7 @@ import React from "react";
 
 // controlled component
 export const EntryForm = props => (
-  <form onSubmit={props.handleFormSubmit} style={{ maxWidth: "750px" }}>
+  <form style={{ maxWidth: "750px" }}>
     <Row>
       <Column>
         <Row>
@@ -66,7 +66,6 @@ const inputStyle = {
   color: "black",
   padding: "0 10px",
   outline: "none",
-  fontSize: "20",
   borderRadius: "6px",
   fontSize: "12px"
 };

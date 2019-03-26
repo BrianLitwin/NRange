@@ -4,10 +4,8 @@ import "./App.css";
 import { Header } from "./Header";
 import { Chart } from "./BarChart";
 import { EntryForm } from "./EntryForm";
-import { validateState } from "./validate";
-import { newModel, charsInNumber } from "./model3";
-import { makeDataObjects } from "./model2";
-import { characterCountInNum } from "./model3.test";
+import { getWordsInNumber } from "./model/helperFunctions";
+import { getCharsInNumber } from "./model/model";
 
 class App extends Component {
   constructor(props) {
@@ -20,42 +18,26 @@ class App extends Component {
   }
 
   render() {
-    const data = newModel();
     const { start, end, letter } = this.state;
-    const startString = makeDataObjects(start).string;
-    const endString = makeDataObjects(end).string;
+    const startString = getWordsInNumber(start);
+    const endString = getWordsInNumber(end);
 
-    const { length, probOfLetter } = data;
-
-    const handleFormSubmit = e => {
-      e.preventDefault();
-      clearWarnings();
-      updateModel(data);
-    };
-
-    const clearWarnings = () => "";
-    const updateModel = data => "";
     const updateStartNumber = e => this.setState({ start: e.target.value });
-    const updateLetter = e => {
-      this.setState({ letter: e.target.value });
-    };
-
     const updateEndNumber = e => this.setState({ end: e.target.value });
+    const updateLetter = e => this.setState({ letter: e.target.value });
 
     var chartData = [];
     var total = 0;
 
-    const charMapEnd = characterCountInNum(end);
+    const charMapEnd = getCharsInNumber(end);
 
     // get range between start and end
-    if (start != 1) {
-      const charMapStart = characterCountInNum(start);
+    if (Number(start) !== 1) {
+      const charMapStart = getCharsInNumber(start);
       charMapStart.forEach((v, k) => {
         charMapEnd.set(k, charMapEnd.get(k) - v);
       });
     }
-
-    console.log(charMapEnd);
 
     charMapEnd.forEach((v, k) => {
       chartData.push({ name: k, count: v });
@@ -67,10 +49,6 @@ class App extends Component {
       return -1;
     });
 
-    console.log(end);
-    console.log(chartData);
-    console.log(chartData.length > 0);
-
     const prob = (charMapEnd.get(letter) / total) * 100;
 
     // const validState = validateState(start, end, letter);
@@ -79,12 +57,12 @@ class App extends Component {
       <Root>
         <Header />
         <Main>
+          <Instructions />
           <ContentFrame>
             <EntryForm
               start={start}
               end={end}
               letter={letter}
-              handleFormSubmit={handleFormSubmit}
               handleStartNumberChange={updateStartNumber}
               handleEndNumberChange={updateEndNumber}
               handleLetterChange={updateLetter}
@@ -142,8 +120,6 @@ const ContentFrame = props => (
   />
 );
 
-// put hovers
-
 const Output = props => (
   <div>
     <label>
@@ -156,5 +132,18 @@ const Output = props => (
     </label>
   </div>
 );
+
+const Instructions = () => {
+  return (
+    <p
+      style={{
+        paddingLeft: "25px"
+      }}
+    >
+      {" "}
+      Enter two numbers greater than 0 and less than 1,000,000{" "}
+    </p>
+  );
+};
 
 export default App;
