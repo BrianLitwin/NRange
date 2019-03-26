@@ -23,8 +23,8 @@ export function makeNumberArray(n, array = []) {
   }
 }
 
-// returns an array of strings representing a number 
-//  e.g. numberArray [1,2,3,4] => ["one", "thousand", "two", "hundred", "thirty", "four"]
+// returns an array of strings representing a number < 1,000 
+//  e.g. numberArray [1,2,3] => ["one", "hundred", "thirty", "four"]
 export function formatArrays(numberArray, stringArray) {
   const len = numberArray.length;
 
