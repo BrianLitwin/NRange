@@ -9,6 +9,27 @@ export function getWordsInNumber(n) {
   const numberArray = makeNumberArray(n);
 }
 
+// .e.g [1,2,3,4,5,6,7] => [[1], [2,3,4], [5,6,7]]
+export function formatNumberArraytoThreeDigits(numberArray) {
+  
+}
+
+export function convertNumberToStringArray(n) {
+  const numberArray = makeNumberArray(n);
+  const threeDigitArray = formatNumberArraytoThreeDigits(numberArray)
+  const finalArray = [threeDigitArray.pop()]; // init w/ the subarray representing "hundreds" 
+  
+  for (var i = 0; i < returnArray.length; i++) {
+      const array = threeDigitArray.pop()
+      const arrayString = formatArray(array)
+      const powerOfTen = tensPower[i]
+      finalArray.unshift(powerOften)
+      finalArray.unshift(arrayString)
+  }
+  
+  return finalArray 
+}
+
 // returns an array of digits 
 // e.g. n = 1234 => [1,2,3,4]
 export function makeNumberArray(n, array = []) {
