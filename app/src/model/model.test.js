@@ -1,5 +1,5 @@
 import { getLetterCount } from "./model";
-import { getWordsInNumber } " from "./helperFunctions";
+import { getWordsInNumber } from "./helperFunctions";
 
 describe("Calculating the number of letters in a number-string", () => {
   describe("getLetterCount", () => {
