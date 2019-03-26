@@ -9,7 +9,7 @@ export function getWordsInNumber(n) {
   const numberArray = makeNumberArray(n);
 }
 
-// .e.g [1,2,3,4,5,6,7] => [[1], [2,3,4], [5,6,7]]
+// .e.g 1234567 => [[1], [2,3,4], [5,6,7]]
 export function formatNumberArraytoThreeDigits(n) {
   const numberArray = makeNumberArray(n)
   const finalArray = []
