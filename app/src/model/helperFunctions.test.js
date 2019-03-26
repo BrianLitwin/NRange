@@ -1,4 +1,4 @@
-import { makeNumberArray, formatArray } from "./helperFunctions";
+import { makeNumberArray, formatArray, formatNumberArraytoThreeDigits, getWordsInNumber  } from "./helperFunctions";
 
 describe("helper functions", () => {
   it("converts numbers into arrays", () => {
