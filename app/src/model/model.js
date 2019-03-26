@@ -1,3 +1,5 @@
+import { makeNumberArray } from './helperFunctions'
+
 function getLetterCount(n, letterMap = new Map(), multiplier = 1) {
   if (n <= 999) {
     console.log(n);
@@ -13,12 +15,7 @@ function getLetterCount(n, letterMap = new Map(), multiplier = 1) {
   const lastPwr = Math.pow(10, (numberArray.length + 1) * 3);
   console.log(lastPwr);
   getLetterCount(last, charMap, lastPwr);
-  // first will be 'hundreds' e.g. calling charCountIn will
-  // comprehensive
-  // the others require adding 'thousand', 'million', etc,
-  // to each letter count
-  // e.g. 12,456 will count 1-12 + 'thousand' x 1000
-  // for each
+  
 
   for (var i = 0; i < numberArray.length; i++) {
     const power = 3 * (i + 1);
